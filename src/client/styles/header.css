@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+  flex-direction: row;
+  color: white;
+  height: 15vh;
+  background-color: rgb(105, 207, 105);
+  font-size: 3rem;
+}
