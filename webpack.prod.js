@@ -2,9 +2,13 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const WorkboxPlugin = require('workbox-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: './src/client/index.js',
+    output:{
+        filename:"main.[contenthash].js",
+        path: path.resolve(__dirname,"dist")
+    },
     mode: 'production',
     module: {
         rules: [
@@ -15,8 +19,10 @@ module.exports = {
             },
 
             {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+                test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader","sass-loader"],
+        
+        
       },
             
         ]
@@ -27,10 +33,13 @@ module.exports = {
             filename: "./index.html",
         }),
          new WorkboxPlugin.GenerateSW({
-       swDest:'sw.js',
+      
        clientsClaim: true,
        skipWaiting: true,
-       
      }),
+     new MiniCssExtractPlugin({
+         filename:'main.[contenthash].css'
+                         
+     })
     ]
 }

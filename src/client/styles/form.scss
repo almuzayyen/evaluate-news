@@ -20,3 +20,19 @@ button {
   line-height: 16px;
   margin: 10px 0;
 }
+.results-section {
+  padding: 3rem;
+  margin: 3rem;
+  font-size: 3.5rem;
+  .results-div {
+    border: 1px solid #545454;
+    padding: 3rem;
+    margin: 3rem;
+  }
+  ul,
+  li {
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 2rem;
+  }
+}

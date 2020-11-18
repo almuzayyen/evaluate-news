@@ -17,7 +17,7 @@ const key = process.env.KEY;
 const lang = 'en';
 //let text = 'happy'
 let resData = [];
-app.use(express.static('dist'));
+app.use(express.static(__dirname +'/dist'));
 console.log(resData)
 //console.log(__dirname)
 //console.log(`Your API key is ${key}`);
@@ -31,14 +31,9 @@ app.get('/',  async (req, res)  =>{
     res.sendFile(path.resolve('src/client/views/index.html'))
    //res.send('hellli')
 })*/
-app.get('/', (req,res,next) =>{
-  res.send('<p>some html</p>')
-  //res.json(resData)
-  //app.set('views', path.join(__dirname, 'views'));
-  //res.json(resData)
-//res.sendFile( '/Users/mohammedalmuzayyen/Documents/nano-fn/Evaluate-News/dist/index.html');
-////res.sendFile( 'views/index.html', {root: __dirname })
-next()
+app.get('/', (req,res) =>{
+
+
 })
 app.post('/', async (req, res, next)=>{
   let text = req.body.text
@@ -70,7 +65,7 @@ next();
 
 
 // designates what port the app will listen to for incoming requests
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
   console.log(`app runing on port ${port}`);
 });
