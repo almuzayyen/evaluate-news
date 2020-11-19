@@ -31,9 +31,9 @@ app.get('/',  async (req, res)  =>{
     res.sendFile(path.resolve('src/client/views/index.html'))
    //res.send('hellli')
 })*/
-app.get('/', (req,res) =>{
+app.get('/', (req,res,next) =>{
 
-
+next()
 })
 app.post('/', async (req, res, next)=>{
   let text = req.body.text
@@ -48,17 +48,10 @@ let response =  await fetch(url,{
 let data = await response.json()
 console.log(response)
 resData.push(data)
-//console.log(resData)
-//res.render('dis/views/index.html', {root: __dirname })
-//response.sendfile();
-//res.render(path.join(__dirname, 'dis', 'index.html'));
+
 
 res.json(resData)
-//console.log(resData)
-//res.sendFile( '/Users/mohammedalmuzayyen/Documents/nano-fn/Evaluate-News/dist/index.html');
-//res.redirect('/');
- //res.send(data)
- //res.sendFile(path.resolve('src/client/views/index.html'))
+
 next();
 })
 
