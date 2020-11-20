@@ -1,4 +1,4 @@
-import { checkForName } from './nameChecker'
+import { checkForName,validate } from './nameChecker'
 
 const  bt = document.getElementById('inputName');
   function handleSubmit (event) {
@@ -12,7 +12,7 @@ const  bt = document.getElementById('inputName');
     checkForName(formText)
 
     console.log("::: Form Submitted :::")
-        if(formText != ''){
+      if( formText.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g)){
         fetch('http://localhost:3000',{
          method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -35,9 +35,13 @@ const  bt = document.getElementById('inputName');
         
 
     })
-  }else{
-     alert("filed require")
-  }})
+  }
+  else 
+  {
+    validate();
+   
+  }
+})
 
 };
 

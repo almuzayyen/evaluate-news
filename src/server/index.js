@@ -19,18 +19,7 @@ const lang = 'en';
 let resData = [];
 app.use(express.static(__dirname +'/dist'));
 console.log(resData)
-//console.log(__dirname)
-//console.log(`Your API key is ${key}`);
-//console.log(('views', path.join(__dirname, 'views')));
-//console.log(app.use(express.static('dist')))
-/*
-app.get('/',  async (req, res)  =>{
-    //let data = await response.json()
-     //console.log(data)
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('src/client/views/index.html'))
-   //res.send('hellli')
-})*/
+
 app.get('/', (req,res,next) =>{
 
 next()

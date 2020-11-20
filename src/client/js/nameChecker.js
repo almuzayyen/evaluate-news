@@ -12,4 +12,14 @@ function checkForName(inputText) {
         alert("Welcome, Captain!")
     }
 }
-export { checkForName  }
+
+ //(^http[s]?:\/{2})|(^www)|(^\/{1,2})
+function validate (formText){
+    //formText = document.getElementById('name').value
+    //if(formText.match(/^(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g)){
+ 
+   // }
+   alert(' URL is unvalid format !!')
+}
+
+export { checkForName ,validate }
